@@ -25,8 +25,11 @@ jobs:
     - name: Install System-Level Browser Dependencies
       run: npx playwright install --with-deps
 
-    - name: Execute Regression Test Suite
-      run: npx playwright test
+    - name: Execute UI Regression Tests
+      run: npx playwright test --project=ui-tests
+
+    - name: Execute Backend API Tests
+      run: npx playwright test --project=api-tests
 
     - name: Publish Test Execution Artifacts
       uses: actions/upload-artifact@v4
